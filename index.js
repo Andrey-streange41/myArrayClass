@@ -33,7 +33,7 @@ class MyArray
     {
         if(this.GetLength() === 0)
         {
-          this.#_container[this.#_length++] = item;
+            this.pushBack(item);
           return this.GetLength();
         }
         let tmp = [];
@@ -48,11 +48,11 @@ class MyArray
     //Используйте для получения значения в коллекции по заданному индексу.
     GetItemById(index)
     {
-        if(isNaN(item))
+        if(isNaN(index))
             throw TypeError("Функция ожидала в качестве параметра число !");
         if(index >= this.GetLength() || index < 0)
             throw new RangeError("Выход за границы массива при доступе к элементу !");
-        return this.GetLength() === 0 ? null : this.#_container[index];
+        return this.GetLength() === 0 ? undefined : this.#_container[index];
     }
     //Используйте для добавления элементов в заданую позицыю в коллекции .
     //Не может быть добавленно в позицыю за пределами коллекции.
@@ -273,14 +273,11 @@ class MyArray
 
 
 const tmp = new MyArray(0);
-tmp.insert(0,0);
-tmp.insert(1,1);
-tmp.insert(122,2);
-tmp.insert(22,3);
+tmp.pushFront(22);
 console.log(tmp.GetContainer());
 
 
 
-console.log(tmp.mySlice(2,3));
+
 
 
